@@ -5,8 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href=".././output.css" rel="stylesheet">
   <title>DLC HUB</title>
+
+  <script>
+    function redirectToUrl(selectElement) {
+        const selectedValue = selectElement.value;
+        if (selectedValue) {
+            window.location.href = selectedValue; // Redirect to the selected URL
+        }
+    }
+</script>
 </head>
-<body></body>
+<body>
   <div class="w-screen h-screen bg-[#FFF2F2] flex">
     <!-- LEFT SECTION -->
     <div class="w-[55%] h-full flex items-center justify-center text-6xl">
@@ -24,9 +33,9 @@
       <!-- INPUT BOXES -->
       <div class="w-[80%] flex flex-col gap-4">
 
-        <select name="" id="" class="w-full h-12 bg-[#FFF2F2] outline-none px-5">
+        <select name="" id="" class="w-full h-12 bg-[#FFF2F2] outline-none px-5" onchange="redirectToUrl(this)">
             <option value="" selected>STUDENT</option>
-            <option value="">TEACHER</option>
+            <option value="teacher_signUp.html" >TEACHER</option>
         </select>
 
         <div class="grid grid-cols-2 gap-5">
@@ -55,7 +64,7 @@
         </button>
         <p class="text-white">
           Already Have an account? 
-          <a href="#" class="hover:underline">Sign in</a>
+          <a href="index.html" class="hover:underline">Sign in</a>
         </p>
       </div>
     </div>
