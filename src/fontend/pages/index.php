@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href=".././output.css" rel="stylesheet">
+  <link href="../output.css" rel="stylesheet">
   <title>DLC HUB</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
     </div>
 
     <!-- RIGHT SECTION -->
-    <div class="w-[45%] h-full bg-[#800000] flex flex-col py-20 px-10 justify-around items-center rounded-l-3xl">
+    <form class="w-[45%] h-full bg-[#800000] flex flex-col py-20 px-10 justify-around items-center rounded-l-3xl" method="post" action="/DLCHUB/src/backend/login_config.php">
       <!-- WELCOME MESSAGE -->
       <div class="text-white flex flex-col gap-4 items-center">
         <h1 class="text-7xl">Welcome</h1>
@@ -23,8 +23,17 @@
 
       <!-- INPUT BOXES -->
       <div class="w-[80%] flex flex-col gap-4">
-        <input type="text" class="w-full h-12 bg-[#FFF2F2] outline-none pl-5" placeholder="Email">
-        <input type="password" class="w-full h-12 bg-[#FFF2F2] outline-none pl-5" placeholder="Password">
+      <?php 
+        $error = $_GET['error'] ?? null;
+        if ($error) {
+          echo "<p class='text-white text-center'>Invalid username or password</p>";
+        }
+        ?>
+
+        <input type="text" class="w-full h-12 bg-[#FFF2F2] outline-none pl-5" placeholder="Email" namespace="user_name" name="user_username">
+        <input type="password" class="w-full h-12 bg-[#FFF2F2] outline-none pl-5" placeholder="Password" namespace="user_pass" name="user_password">
+
+    
 
         <!-- REMEMBER ME & FORGOT PASSWORD -->
         <div class="flex justify-between text-white">
@@ -43,9 +52,13 @@
         </button>
         <p class="text-white">
           Don't Have an account? 
-          <a href="student_signUp.html" class="hover:underline">Sign Up</a>
+          <a href="student_signUp.php" class="hover:underline">Sign Up</a>
         </p>
       </div>
+
+    </form>
+
+
     </div>
   </div>
 </body>
